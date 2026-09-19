@@ -483,6 +483,12 @@
     filter: grayscale(100%);
   }
 }
+@media (min-width: 992px) {
+  .sh-cast-group-photo {
+    height: 480px;
+    img { object-position: center 52%; }
+  }
+}
 .sh-cast-section .sh-section-title {
   text-align: center;
   margin-bottom: 1.5rem;
