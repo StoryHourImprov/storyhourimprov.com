@@ -485,8 +485,8 @@
 }
 @media (min-width: 992px) {
   .sh-cast-group-photo {
-    height: 460px;
-    img { object-position: center 44%; }
+    height: clamp(260px, 35vw, 440px);
+    img { object-position: center 38%; }
   }
 }
 .sh-cast-section .sh-section-title {
