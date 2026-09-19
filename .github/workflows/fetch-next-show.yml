@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      actions: write
     steps:
       - uses: actions/checkout@v4
 
@@ -40,6 +41,8 @@ jobs:
           ' /tmp/tt_events.json > static/data/next-show.json
 
       - name: Commit if changed
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -49,4 +52,5 @@ jobs:
           else
             git commit -m "Update next show data"
             git push
+            gh workflow run hugo-deploy.yml --ref main
           fi
